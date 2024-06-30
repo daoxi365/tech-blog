@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://daoxi365.github.io/tech-blog/</id>
+    <title>PanDaoxi&apos;s Tech Blog</title>
+    <updated>2024-06-30T08:38:16.403Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://daoxi365.github.io/tech-blog/"/>
+    <link rel="self" href="https://daoxi365.github.io/tech-blog/atom.xml"/>
+    <logo>https://daoxi365.github.io/tech-blog/images/avatar.png</logo>
+    <icon>https://daoxi365.github.io/tech-blog/favicon.ico</icon>
+    <rights>All rights reserved 2024, PanDaoxi&apos;s Tech Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[用 Flash 制作 PanDaoxi 同款校徽封面]]></title>
+        <id>https://daoxi365.github.io/tech-blog/yong-flash-zhi-zuo-pandaoxi-tong-kuan-tou-tu/</id>
+        <link href="https://daoxi365.github.io/tech-blog/yong-flash-zhi-zuo-pandaoxi-tong-kuan-tou-tu/">
+        </link>
+        <updated>2024-06-30T06:10:35.000Z</updated>
+        <summary type="html"><![CDATA[<p>发扬吾校精神！</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>发扬吾校精神！</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一个有趣的 404 页面]]></title>
+        <id>https://daoxi365.github.io/tech-blog/yi-ge-you-qu-de-404-ye-mian/</id>
+        <link href="https://daoxi365.github.io/tech-blog/yi-ge-you-qu-de-404-ye-mian/">
+        </link>
+        <updated>2024-06-21T06:52:11.000Z</updated>
+        <summary type="html"><![CDATA[<p><code>404 not found</code>，是 HTTP 对网页错误情况返回的一种状态码，当用户在浏览器中输入网址时，服务器会根据输入的地址判断是否有对应的网页信息，如果没有对应信息，说明用户输入的可能是一串无效的链接，服务器就会向用户返回 <code>404 not found</code> 状态码，告诉用户没有找到对应的网页信息。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><code>404 not found</code>，是 HTTP 对网页错误情况返回的一种状态码，当用户在浏览器中输入网址时，服务器会根据输入的地址判断是否有对应的网页信息，如果没有对应信息，说明用户输入的可能是一串无效的链接，服务器就会向用户返回 <code>404 not found</code> 状态码，告诉用户没有找到对应的网页信息。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[重新排列 Windows“新建”菜单的顺序]]></title>
+        <id>https://daoxi365.github.io/tech-blog/chong-xin-pai-lie-windowsxin-jian-cai-dan-de-shun-xu/</id>
+        <link href="https://daoxi365.github.io/tech-blog/chong-xin-pai-lie-windowsxin-jian-cai-dan-de-shun-xu/">
+        </link>
+        <updated>2024-06-20T11:41:38.000Z</updated>
+        <summary type="html"><![CDATA[<p>为了方便使用，我的 Windows 电脑进行了许多个性化设置。比如我重新排列了“新建”菜单各个项目的顺序。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>为了方便使用，我的 Windows 电脑进行了许多个性化设置。比如我重新排列了“新建”菜单各个项目的顺序。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[利用 ClipboardJS 实现代码块复制按钮]]></title>
+        <id>https://daoxi365.github.io/tech-blog/li-yong-clipboardjs-shi-xian-dai-ma-kuai-fu-zhi-an-niu/</id>
+        <link href="https://daoxi365.github.io/tech-blog/li-yong-clipboardjs-shi-xian-dai-ma-kuai-fu-zhi-an-niu/">
+        </link>
+        <updated>2024-06-20T11:12:20.000Z</updated>
+        <summary type="html"><![CDATA[<p>这是我的网站的一个新特性——“复制”按钮。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这是我的网站的一个新特性——“复制”按钮。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在线文档 Docsify 的简单应用]]></title>
+        <id>https://daoxi365.github.io/tech-blog/zai-xian-wen-dang-docsify-de-jian-dan-ying-yong/</id>
+        <link href="https://daoxi365.github.io/tech-blog/zai-xian-wen-dang-docsify-de-jian-dan-ying-yong/">
+        </link>
+        <updated>2024-04-21T06:59:52.000Z</updated>
+        <summary type="html"><![CDATA[<p>众所周知，我把以前我在 CSDN 的博客放在了一个新站点上——CSDN Blog，作为我技术博客的一个分站。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>众所周知，我把以前我在 CSDN 的博客放在了一个新站点上——CSDN Blog，作为我技术博客的一个分站。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[逃脱“红蜘蛛”等多媒体网络教室工具的方法]]></title>
+        <id>https://daoxi365.github.io/tech-blog/tao-tuo-hong-zhi-zhu-deng-duo-mei-ti-wang-luo-jiao-shi-gong-ju-de-fang-fa/</id>
+        <link href="https://daoxi365.github.io/tech-blog/tao-tuo-hong-zhi-zhu-deng-duo-mei-ti-wang-luo-jiao-shi-gong-ju-de-fang-fa/">
+        </link>
+        <updated>2024-03-30T13:38:01.000Z</updated>
+        <summary type="html"><![CDATA[<p>关于什么是“红蜘蛛”：<a href="http://www.3000soft.net/products/product1.php">http://www.3000soft.net/products/product1.php</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>关于什么是“红蜘蛛”：<a href="http://www.3000soft.net/products/product1.php">http://www.3000soft.net/products/product1.php</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【PanDaoxi 制作】集成 Edgeless RAMOS]]></title>
+        <id>https://daoxi365.github.io/tech-blog/pandaoxi-zhi-zuo-ji-cheng-edgeless-ramos/</id>
+        <link href="https://daoxi365.github.io/tech-blog/pandaoxi-zhi-zuo-ji-cheng-edgeless-ramos/">
+        </link>
+        <updated>2024-02-15T06:25:57.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【PanDaoxi 制作】集成全能版 Windows 11]]></title>
+        <id>https://daoxi365.github.io/tech-blog/pandaoxi-zhi-zuo-ji-cheng-quan-neng-ban-windows-11/</id>
+        <link href="https://daoxi365.github.io/tech-blog/pandaoxi-zhi-zuo-ji-cheng-quan-neng-ban-windows-11/">
+        </link>
+        <updated>2023-11-19T06:31:05.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++ 排序和去重]]></title>
+        <id>https://daoxi365.github.io/tech-blog/c-pai-xu-he-qu-chong/</id>
+        <link href="https://daoxi365.github.io/tech-blog/c-pai-xu-he-qu-chong/">
+        </link>
+        <updated>2023-09-15T11:00:32.000Z</updated>
+        <summary type="html"><![CDATA[<p>排序和去重是数据分析中对数据常见的两种操作。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>排序和去重是数据分析中对数据常见的两种操作。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【PanDaoxi 制作】Windows 10 精简集成版 EDU]]></title>
+        <id>https://daoxi365.github.io/tech-blog/pandaoxi-zhi-zuo-windows-10-jing-jian-ji-cheng-ban-edu/</id>
+        <link href="https://daoxi365.github.io/tech-blog/pandaoxi-zhi-zuo-windows-10-jing-jian-ji-cheng-ban-edu/">
+        </link>
+        <updated>2023-09-09T06:32:03.000Z</updated>
+    </entry>
+</feed>
