@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<!---
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+-->
+<link href="https://fonts.font.im/css2?family=Noto+Serif+SC&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+
+<title>OI 系列 | PanDaoxi&#39;s Tech Blog</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="/animate.css">
+
+<!--<link rel="shortcut icon" href="https://daoxi365.github.io/tech-blog//favicon.ico?v=1734229689376">-->
+<link rel="icon" class="js-site-favicon" type="image/svg+xml" href="/tech-blog/favicon.ico">
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script src="/katex/katex.min.js"></script>
+<link rel="stylesheet" href="https://daoxi365.github.io/tech-blog//styles/main.css">
+
+
+
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/css/fontawesome.css" rel="stylesheet"> -->
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/css/svg-with-js.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/js/fontawesome.min.js"></script> -->
+<script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="/jquery-3.7.1.min.js">
+<script src='/valine.js'></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://daoxi365.github.io/tech-blog/">
+        <img class="avatar" src="https://daoxi365.github.io/tech-blog//images/avatar.png?v=1734229689376" alt=""
+          width="32px" height="32px">
+      </a>
+      <a href="https://daoxi365.github.io/tech-blog/">
+        <h1 class="site-title">
+          PanDaoxi&#39;s Tech Blog
+        </h1>
+      </a>
+    </div>
+    <div class="right">
+      <div class="gridea-search-div" v-if="headSearchShow">
+        <form id="gridea-search-form" action="https://daoxi365.github.io/tech-blog//search/">
+          <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+        </form>
+      </div>
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }"
+          @click="menuClick()"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      <div class="gridea-search-div" v-if="menuSearchShow">
+        <form id="gridea-search-form" action="https://daoxi365.github.io/tech-blog//search/">
+          <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+        </form>
+      </div>
+      
+        
+            <a href="https://daoxi365.github.io/tech-blog/" class="menu purple-link">
+              Homepage
+            </a>
+            
+              
+        
+            <a href="https://daoxi365.github.io/tech-blog/tags" class="menu purple-link">
+              Tags
+            </a>
+            
+              
+        
+            <a href="https://daoxi365.github.io/tech-blog/archives" class="menu purple-link">
+              Archives
+            </a>
+            
+              
+        
+            <a href="https://daoxi365.github.io/tech-blog/guan-yu" class="menu purple-link">
+              About Us
+            </a>
+            
+              
+        
+          <a class="menu purple-link" href="https://daoxi365.github.io/" class="menu" target="_blank">
+            Main Site
+          </a>
+          
+              
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> OI 系列
+          </h2> 
+        </div>
+
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/jian-dan-tu-lun-luogu-p5318-cha-zhao-wen-xian/">
+        <h2 class="post-title">简单图论：Luogu P5318 查找文献</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-11-04</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/jian-dan-tu-lun-luogu-p5318-cha-zhao-wen-xian/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/jian-dan-tu-lun-luogu-p5318-cha-zhao-wen-xian.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/c-pai-xu-he-qu-chong/">
+        <h2 class="post-title">C++ 排序和去重</h2>
+      </a>
+      <div class="post-abstract">
+        <p>排序和去重是数据分析中对数据常见的两种操作。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-09-15</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/c-pai-xu-he-qu-chong/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/c-pai-xu-he-qu-chong.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/ji-yi-hua-sou-suo/">
+        <h2 class="post-title">记忆化搜索</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-08-28</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/ji-yi-hua-sou-suo/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/ji-yi-hua-sou-suo.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/ji-yu-lemon-ping-ce-ruan-jian-de-zi-dong-ac-ji/">
+        <h2 class="post-title">基于 Lemon 评测软件的“自动 AC 机”</h2>
+      </a>
+      <div class="post-abstract">
+        <p>身为一个蒟蒻，想要在模拟赛里面考出一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>AK</mtext></mrow><annotation encoding="application/x-tex">\text{AK}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">AK</span></span></span></span></span>（痴心妄想），<s>需要借助科技的力量</s>。<br>
+于是“自动 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>AC</mtext></mrow><annotation encoding="application/x-tex">\text{AC}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">AC</span></span></span></span></span> 机”便应运而生了！</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-08-02</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://daoxi365.github.io/tech-blog/TFA/">
+                整活
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/ji-yu-lemon-ping-ce-ruan-jian-de-zi-dong-ac-ji/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/ji-yu-lemon-ping-ce-ruan-jian-de-zi-dong-ac-ji.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/jiu-dfs/">
+        <h2 class="post-title">九、DFS</h2>
+      </a>
+      <div class="post-abstract">
+        <p>好长时间没有写过这个系列了，中间还进行了文章的大迁移，希望大家还记得我。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-07-16</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oier-yyds/">
+                OI 从入门到出门
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/jiu-dfs/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/jiu-dfs.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/gao-jing-du-ac-luogu-p1001/">
+        <h2 class="post-title">高精度 AC Luogu P1001</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2022-12-10</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/gao-jing-du-ac-luogu-p1001/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/gao-jing-du-ac-luogu-p1001.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/luogu-p3853-lu-biao-she-zhi/">
+        <h2 class="post-title">Luogu P3853 路标设置</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2022-10-22</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/luogu-p3853-lu-biao-she-zhi/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/luogu-p3853-lu-biao-she-zhi.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/shu-xing-jie-gou/">
+        <h2 class="post-title">八、树形数据结构</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2022-09-25</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oier-yyds/">
+                OI 从入门到出门
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/shu-xing-jie-gou/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/shu-xing-jie-gou.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/zhan-oi/">
+        <h2 class="post-title">七、栈</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2022-09-12</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oier-yyds/">
+                OI 从入门到出门
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/zhan-oi/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/zhan-oi.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://daoxi365.github.io/tech-blog/di-gui-OI/">
+        <h2 class="post-title">六、递归</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2022-09-10</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oier-yyds/">
+                OI 从入门到出门
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://daoxi365.github.io/tech-blog/oi/">
+                OI 系列
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://daoxi365.github.io/tech-blog/di-gui-OI/">
+        <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/di-gui-OI.png')">
+        </div>
+      </a>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+  
+    <a href="https://daoxi365.github.io/tech-blog/oi/page/2" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
+  
+</div>
+
+
+      </div>
+
+      <script>
+document.addEventListener('DOMContentLoaded', () => {
+            const pres = document.querySelectorAll('pre');
+
+            pres.forEach((pre, index) => {
+                // 创建唯一的ID
+                const uniqueId = `pre-${index + 1}`;
+                pre.id = uniqueId;
+
+                // 创建按钮
+                const button = document.createElement('button');
+                button.className = 'btn';
+                button.innerHTML = '<span>Copy</span> <span class="fa fa-copy"></span>';
+
+                // 设置 data-clipboard-target 属性
+                button.setAttribute('data-clipboard-target', `#${uniqueId}`);
+
+                // 在 pre 标签之前插入按钮
+                pre.parentNode.insertBefore(button, pre);
+            });
+        });
+    </script>
+	    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 初始化 Clipboard.js
+            new ClipboardJS('.btn');
+        });
+        (function(c,a){var b=a.createElement("div");b.style.cssText="position: fixed; top: 0; left: 0; width: 0; height: 3px;box-shadow: 0 0 3px #999; background: -webkit-linear-gradient(#177cb0,#065279,#2e4e7e);z-index: 999999;-webkit-transition:width .3s linear;";a.body.appendChild(b);var d=c.innerHeight||a.documentElement.clientHeight||a.body.clientHeight;c.addEventListener("scroll",function(){b.style.width=Math.round(pageYOffset/(a.body.offsetHeight-d)*100)+"%"},!1)})(window,document);
+    </script>
+<div class="site-footer">
+  <div class="social-container">
+  
+  <a href="/post-images/1677405467178.jpg" target="_blank" title="微信"><i class="fa fa-wechat"></i></a>
+  <a href="http://wpa.qq.com/msgrd?v=3&uin=2060642520&site=qq&menu=yes" target="_blank" title="QQ"><i class="fa fa-qq"></i></a>
+  <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=6JiJhoyJh5CBqJmZxouHhQ" style="text-decoration:none;" title="电子邮件"><i class="fa fa-envelope"></i></a>
+		
+	
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+	  <a target="_blank" href="https://daoxi365.github.io/csdn-blogs/" title="原 CSDN 文章汇总"><i class="fa fa-window-restore"></i></a>
+	  <a target="_blank" href="https://daoxi365.github.io/software/" title="微型项目及下载站"><i class="fa fa-cloud-download"></i></a>
+	  <a target="_blank" href="/" style="text-decoration:none;" title="Daoxi365 主站"><i class="fa fa-home"></i></a>
+  	<a href="https://daoxi365.github.io/tech-blog//atom.xml" target="_blank" title="RSS 订阅"><i class="fa fa-rss"></i></a>
+  </div>
+  <p><b>Any great thought has a negligible beginning.</b></p><br><p>Copyright 2022-<span id="currentYear"></span> by <b>PanDaoxi</b>. All rights reserved.</p>
+<br> <script src="/tech-blog/beauty.js"></script><!--  | <a class="rss" href="https://daoxi365.github.io/tech-blog//atom.xml" target="_blank">RSS</a>-->
+</div>
+ <canvas width="1366" height="662" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+ 
+
+
+    </div>
+    <script src="https://daoxi365.github.io/tech-blog//media/scripts/index.js"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://daoxi365.github.io/tech-blog/</id>
+    <title>PanDaoxi&apos;s Tech Blog</title>
+    <updated>2024-12-15T02:28:12.783Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://daoxi365.github.io/tech-blog/"/>
+    <link rel="self" href="https://daoxi365.github.io/tech-blog/atom.xml"/>
+    <logo>https://daoxi365.github.io/tech-blog/images/avatar.png</logo>
+    <icon>https://daoxi365.github.io/tech-blog/favicon.ico</icon>
+    <rights>All rights reserved 2024, PanDaoxi&apos;s Tech Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Sunset]]></title>
+        <id>https://daoxi365.github.io/tech-blog/sunset/</id>
+        <link href="https://daoxi365.github.io/tech-blog/sunset/">
+        </link>
+        <updated>2024-12-15T02:28:02.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[化繁为简 or 化简为繁]]></title>
+        <id>https://daoxi365.github.io/tech-blog/hua-fan-wei-jian-or-hua-jian-wei-fan/</id>
+        <link href="https://daoxi365.github.io/tech-blog/hua-fan-wei-jian-or-hua-jian-wei-fan/">
+        </link>
+        <updated>2024-07-18T11:05:02.000Z</updated>
+        <summary type="html"><![CDATA[<p>整活：记一次 <strong>Python 压行</strong>的经历。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>整活：记一次 <strong>Python 压行</strong>的经历。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[用 Flash 制作 PanDaoxi 同款校徽封面]]></title>
+        <id>https://daoxi365.github.io/tech-blog/yong-flash-zhi-zuo-pandaoxi-tong-kuan-tou-tu/</id>
+        <link href="https://daoxi365.github.io/tech-blog/yong-flash-zhi-zuo-pandaoxi-tong-kuan-tou-tu/">
+        </link>
+        <updated>2024-06-30T06:10:35.000Z</updated>
+        <summary type="html"><![CDATA[<p>发扬吾校精神！</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>发扬吾校精神！</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[重新排列 Windows“新建”菜单的顺序]]></title>
+        <id>https://daoxi365.github.io/tech-blog/chong-xin-pai-lie-windowsxin-jian-cai-dan-de-shun-xu/</id>
+        <link href="https://daoxi365.github.io/tech-blog/chong-xin-pai-lie-windowsxin-jian-cai-dan-de-shun-xu/">
+        </link>
+        <updated>2024-06-20T11:41:38.000Z</updated>
+        <summary type="html"><![CDATA[<p>为了方便使用，我的 Windows 电脑进行了许多个性化设置。比如我重新排列了“新建”菜单各个项目的顺序。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>为了方便使用，我的 Windows 电脑进行了许多个性化设置。比如我重新排列了“新建”菜单各个项目的顺序。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[利用 ClipboardJS 实现代码块复制按钮]]></title>
+        <id>https://daoxi365.github.io/tech-blog/li-yong-clipboardjs-shi-xian-dai-ma-kuai-fu-zhi-an-niu/</id>
+        <link href="https://daoxi365.github.io/tech-blog/li-yong-clipboardjs-shi-xian-dai-ma-kuai-fu-zhi-an-niu/">
+        </link>
+        <updated>2024-06-20T11:12:20.000Z</updated>
+        <summary type="html"><![CDATA[<p>这是我的网站的一个新特性——“复制”按钮。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这是我的网站的一个新特性——“复制”按钮。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在线文档 Docsify 的简单应用]]></title>
+        <id>https://daoxi365.github.io/tech-blog/zai-xian-wen-dang-docsify-de-jian-dan-ying-yong/</id>
+        <link href="https://daoxi365.github.io/tech-blog/zai-xian-wen-dang-docsify-de-jian-dan-ying-yong/">
+        </link>
+        <updated>2024-04-21T06:59:52.000Z</updated>
+        <summary type="html"><![CDATA[<p>众所周知，我把以前我在 CSDN 的博客放在了一个新站点上——CSDN Blog，作为我技术博客的一个分站。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>众所周知，我把以前我在 CSDN 的博客放在了一个新站点上——CSDN Blog，作为我技术博客的一个分站。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[逃脱“红蜘蛛”等多媒体网络教室工具的方法]]></title>
+        <id>https://daoxi365.github.io/tech-blog/tao-tuo-hong-zhi-zhu-deng-duo-mei-ti-wang-luo-jiao-shi-gong-ju-de-fang-fa/</id>
+        <link href="https://daoxi365.github.io/tech-blog/tao-tuo-hong-zhi-zhu-deng-duo-mei-ti-wang-luo-jiao-shi-gong-ju-de-fang-fa/">
+        </link>
+        <updated>2024-03-30T13:38:01.000Z</updated>
+        <summary type="html"><![CDATA[<p>关于什么是“红蜘蛛”：<a href="http://www.3000soft.net/products/product1.php">http://www.3000soft.net/products/product1.php</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>关于什么是“红蜘蛛”：<a href="http://www.3000soft.net/products/product1.php">http://www.3000soft.net/products/product1.php</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[解决一部分 Windows 下 U 盘插入无反应的问题]]></title>
+        <id>https://daoxi365.github.io/tech-blog/jie-jue-yi-bu-fen-windows-xia-u-pan-cha-ru-wu-fan-ying-de-wen-ti/</id>
+        <link href="https://daoxi365.github.io/tech-blog/jie-jue-yi-bu-fen-windows-xia-u-pan-cha-ru-wu-fan-ying-de-wen-ti/">
+        </link>
+        <updated>2023-11-19T13:54:22.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[简单图论：Luogu P5318 查找文献]]></title>
+        <id>https://daoxi365.github.io/tech-blog/jian-dan-tu-lun-luogu-p5318-cha-zhao-wen-xian/</id>
+        <link href="https://daoxi365.github.io/tech-blog/jian-dan-tu-lun-luogu-p5318-cha-zhao-wen-xian/">
+        </link>
+        <updated>2023-11-04T13:57:15.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++ 排序和去重]]></title>
+        <id>https://daoxi365.github.io/tech-blog/c-pai-xu-he-qu-chong/</id>
+        <link href="https://daoxi365.github.io/tech-blog/c-pai-xu-he-qu-chong/">
+        </link>
+        <updated>2023-09-15T11:00:32.000Z</updated>
+        <summary type="html"><![CDATA[<p>排序和去重是数据分析中对数据常见的两种操作。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>排序和去重是数据分析中对数据常见的两种操作。</p>
+]]></content>
+    </entry>
+</feed>

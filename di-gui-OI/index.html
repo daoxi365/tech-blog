@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<!---
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+-->
+<link href="https://fonts.font.im/css2?family=Noto+Serif+SC&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+
+<title>六、递归 | PanDaoxi</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="/animate.css">
+
+<!--<link rel="shortcut icon" href="https://daoxi365.github.io/tech-blog//favicon.ico?v=1734229689376">-->
+<link rel="icon" class="js-site-favicon" type="image/svg+xml" href="/tech-blog/favicon.ico">
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script src="/katex/katex.min.js"></script>
+<link rel="stylesheet" href="https://daoxi365.github.io/tech-blog//styles/main.css">
+
+
+
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/css/fontawesome.css" rel="stylesheet"> -->
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/css/svg-with-js.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/js/fontawesome.min.js"></script> -->
+<script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="/jquery-3.7.1.min.js">
+<script src='/valine.js'></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+	<!-- <script src="/highlightjs-line-numbers.min.js"></script> -->
+  </head>
+  <body>
+  <script>
+		var disabledValine = false;
+		document.addEventListener("visibilitychange", function () {
+			if (document.hidden) {
+				document.title="ಠ_ಠ | PanDaoxi";
+			} else  {
+				document.title="(๑>◡<๑) | PanDaoxi";
+				setTimeout(function(){
+					document.title = "六、递归 | PanDaoxi";
+				}, 2000);
+			}
+		}, false);
+	</script>
+  
+  
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://daoxi365.github.io/tech-blog/">
+        <img class="avatar" src="https://daoxi365.github.io/tech-blog//images/avatar.png?v=1734229689376" alt=""
+          width="32px" height="32px">
+      </a>
+      <a href="https://daoxi365.github.io/tech-blog/">
+        <h1 class="site-title">
+          PanDaoxi&#39;s Tech Blog
+        </h1>
+      </a>
+    </div>
+    <div class="right">
+      <div class="gridea-search-div" v-if="headSearchShow">
+        <form id="gridea-search-form" action="https://daoxi365.github.io/tech-blog//search/">
+          <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+        </form>
+      </div>
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }"
+          @click="menuClick()"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      <div class="gridea-search-div" v-if="menuSearchShow">
+        <form id="gridea-search-form" action="https://daoxi365.github.io/tech-blog//search/">
+          <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+        </form>
+      </div>
+      
+        
+            <a href="https://daoxi365.github.io/tech-blog/" class="menu purple-link">
+              Homepage
+            </a>
+            
+              
+        
+            <a href="https://daoxi365.github.io/tech-blog/tags" class="menu purple-link">
+              Tags
+            </a>
+            
+              
+        
+            <a href="https://daoxi365.github.io/tech-blog/archives" class="menu purple-link">
+              Archives
+            </a>
+            
+              
+        
+            <a href="https://daoxi365.github.io/tech-blog/guan-yu" class="menu purple-link">
+              About Us
+            </a>
+            
+              
+        
+          <a class="menu purple-link" href="https://daoxi365.github.io/" class="menu" target="_blank">
+            Main Site
+          </a>
+          
+              
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://daoxi365.github.io/tech-blog//post-images/di-gui-OI.png')">
+            </div>
+          
+          <h2 class="post-title">六、递归</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2022-09-10</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://daoxi365.github.io/tech-blog/oier-yyds/">
+                    OI 从入门到出门
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://daoxi365.github.io/tech-blog/oi/">
+                    OI 系列
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <blockquote>
+<p>分享笑话一则：凌乱之美。<br>
+<img src="https://daoxi365.github.io/tech-blog//post-images/eed1e33862f1e997158f69b023a38bb8.png" alt="image" loading="lazy"></p>
+</blockquote>
+<p>从今天开始，我们就要初涉算法，请大家做好心理准备嗷！</p>
+<h1 id="函数">函数</h1>
+<p>先说说什么是函数。<br>
+大家眼里的函数，可能是这个样的：<br>
+<img src="https://daoxi365.github.io/tech-blog//post-images/df53430a533c1179775d8dca3df0237b.png" alt="image" loading="lazy"></p>
+<p><s>哈，多么美妙的图案！</s></p>
+<p>实际上，在计算机里，函数是这个样的：<br>
+<img src="https://daoxi365.github.io/tech-blog//post-images/2b6dde95e9380403a5deb6c291e223c4.png" alt="image" loading="lazy"></p>
+<p>当然，如果复杂一点点，是这样的：<br>
+<img src="https://daoxi365.github.io/tech-blog//post-images/06980228260c56c0564b2f59ccf57f04.png" alt="image" loading="lazy"></p>
+<p>我们以前写的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>a</mi><mi>i</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">main</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span></span></span></span> 函数，也是一个函数（废话，那必须的啊），你可以按照 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>a</mi><mi>i</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">main</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span></span></span></span> 的写法，写出一个函数：</p>
+<pre><code class="language-cpp">类型名 函数名(类型1 参数1, 类型2 参数2, ……){ // 也可以不要参数
+    你在函数内要做的事儿
+    return 返回的类型; // 必须与函数开头那个一样
+}
+</code></pre>
+<p>如果不需要返回值，你可以声明 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi><mi>o</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">void</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">o</span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span></span></span></span> 类型的函数。</p>
+<pre><code class="language-cpp">// Author:PanDaoxi
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int c, p, q;
+void hahaha(int a, int b){
+    c = a+b;
+    return; // 退出函数
+    c = 0; // 不会执行
+}
+int main(){
+    cin &gt;&gt; p &gt;&gt; q;
+    hahaha(p, q);
+    cout &lt;&lt; c;
+    return 0;
+}
+
+</code></pre>
+<p>但你如何退出整个程序呢？<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi><mi>x</mi><mi>i</mi><mi>t</mi><mo>(</mo><mn>0</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">exit(0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">x</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 。</p>
+<pre><code class="language-cpp">// Author:PanDaoxi
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int c, p, q;
+void hahaha(int a, int b){
+	c = a+b;
+	exit(0);
+}
+int main(){
+	cin &gt;&gt; p &gt;&gt; q;
+	hahaha(p, q);
+	cout &lt;&lt; c;
+	return 0;
+}
+</code></pre>
+<p>所以程序不会输出。</p>
+<h1 id="递归">递归</h1>
+<p>递归这个名词大家估计都耳熟能详吧，<s>那咱们跳过吧</s> 但是我们还是要好好学习递归的，因为递归对于我们后面学习深搜、二叉树是非常重要的。</p>
+<p>如果你还没听说过递归，那么我告诉你，你可以把递归理解成一种<strong>特殊的循环</strong>。还记得小时候听过的“老和尚讲故事”吗？讲来讲去，你就陷入了循环，自己讲起了我自己。</p>
+<pre><code class="language-cpp">// Author:PanDaoxi
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+void story(){
+    cout &lt;&lt; &quot;从前有座山，山上有座庙。庙里有个老和尚给小和尚讲故事，讲的是什么呢？&quot; &lt;&lt; endl;
+    story(); // 我自己执行我自己
+}
+int main(){
+    story();
+    return 0;
+}
+</code></pre>
+<p>然后你会发现，控制台上输出了非常多的故事，直到你把它关掉，这就类似于<strong>死循环</strong>，我们称这种递归叫做<strong>无穷递归</strong>。<br>
+前段时间我们说 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi><mi>h</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">while</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">h</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span></span></span></span> 循环的时候，那个括号里的表达式就是<strong>循环条件</strong>。如果不满足循环条件， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi><mi>h</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">while</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">h</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span></span></span></span> 循环就会结束，然后继续运行后面的指令。所以我们想让递归结束，<strong>必须要设置边界条件</strong>，这样就能实现<strong>有穷递归</strong>。<br>
+比如说，我们刚才讲故事的例子，如果我们想让程序输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 遍，那么该怎么写？</p>
+<pre><code class="language-cpp">// Author:PanDaoxi
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+void story(int k){ // k 表示故事讲了k遍
+    if(k &gt; 10){ // 讲了10遍以上
+        printf(&quot;故事讲完啦&quot;);
+        return; // 退出递归
+    }
+    printf(&quot;第%d遍：从前有座山，山上有座庙。庙里有个老和尚给小和尚讲故事，讲的是什么呢？\n&quot;, k);
+    story(k+1); // 讲了一遍故事
+}
+int main(){
+    story(1); // 从第一遍开始讲故事
+    return 0;
+}
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://daoxi365.github.io/tech-blog//post-images/68c3e653edcee220180941b8ace977c2.png" alt="image" loading="lazy"></figure>
+<p>当然你也可以自由地控制递归次数，要多上机尝试、练习。<br>
+我们来做个题儿应用一下吧：</p>
+<blockquote>
+<p><img src="https://daoxi365.github.io/tech-blog//post-images/f0a4fe27f3ca5d7c54e97d4c15b54c1a.png" alt="在这里插入图片描述" loading="lazy"><br>
+这个题其实用循环也能过，官方给的标签也是循环结构，但是我喜欢用递归解。<br>
+程序也并不难，如下：<br>
+<img src="https://daoxi365.github.io/tech-blog//post-images/8acb45a55925af04098b584b4aed83d1.png" alt="在这里插入图片描述" loading="lazy"></p>
+</blockquote>
+<h2 id="回溯">回溯</h2>
+<p>可能有的小伙伴一听“回溯”，就吓得不轻：难道你要给我讲深搜？<br>
+其实递归的回溯并不难好叭，大家模拟一下就可以咯。</p>
+<p>请你阅读以下这个程序，告诉我，结果会输出多少？</p>
+<pre><code class="language-cpp">// Author:PanDaoxi
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+void f(int k){
+    if(k &gt; 5) return;
+    printf(&quot;%d &quot;, k);
+    f(k+1);
+    printf(&quot;%d &quot;, k);
+}
+int main(){
+    f(1);
+    return 0;
+}
+</code></pre>
+<p>答案是：</p>
+<pre><code>1 2 3 4 5 5 4 3 2 1
+</code></pre>
+<p>为什么会这样？我们来模拟一下。</p>
+<blockquote>
+<p>最开始，主函数调用给进函数的参数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。进来以后走流程：</p>
+<ol>
+<li>判断：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 如果大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 就退出。</li>
+<li>输出当前 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 的值；</li>
+<li>递归 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 增加 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</li>
+<li>递归到边界时，输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 的值。</li>
+</ol>
+<p>可见如果递归到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">k=5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 时程序先输出，后面程序尝试递归 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">k=6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span> 发现：诶，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>&gt;</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">k&gt;5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 了，该退出递归了！<br>
+退出了递归 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">k=6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span>，程序继续执行当前层数（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">k=5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span>）的后面的命令，输出了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span>，然后 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">k=5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 的递归结束，继续进行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">k=4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 的递归……<br>
+长此以往， 运行到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 时（又回到了主程序给定的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 的值时），递归结束。</p>
+</blockquote>
+<p>利用这个特点，我给你出一道题吧。</p>
+<p>【角谷猜想的过程】<br>
+现在，给你一个数，要求你把角谷猜想（就是上面那个）的过程展现出来。<br>
+例如：</p>
+<ul>
+<li>输入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，应该输出：<code>1</code>。</li>
+<li>输入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span>，应该输出：<code>((1)*2)*2+1</code>。</li>
+<li>输入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>123</mn></mrow><annotation encoding="application/x-tex">123</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord">3</span></span></span></span>，应该输出：<code>((((((1)*2+1)*2+1)*2+1)*2)*2+1)*2+1</code>。</li>
+<li>输入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>114514</mn></mrow><annotation encoding="application/x-tex">114514</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">1</span><span class="mord">4</span><span class="mord">5</span><span class="mord">1</span><span class="mord">4</span></span></span></span>，应该输出：<code>((((((((((((((((1)*2+1)*2)*2+1)*2+1)*2+1)*2+1)*2+1)*2+1)*2)*2+1)*2)*2+1)*2)*2)*2+1)*2</code>。</li>
+<li>输入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1919180</mn></mrow><annotation encoding="application/x-tex">1919180</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mord">1</span><span class="mord">9</span><span class="mord">1</span><span class="mord">8</span><span class="mord">0</span></span></span></span>，应该输出：<code>((((((((((((((((((((1)*2+1)*2+1)*2)*2+1)*2)*2+1)*2)*2)*2+1)*2)*2)*2)*2+1)*2+1)*2)*2)*2+1)*2+1)*2)*2</code>。</li>
+</ul>
+<p>不信你可以把它还原回去，还是原来那个数。<br>
+<img src="https://daoxi365.github.io/tech-blog//post-images/428d2ecb01dc4ab640e218ff1cab6bb9.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p>这个程序，我们可以这么写：</p>
+<pre><code class="language-cpp">// Author:PanDaoxi
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+void f(int k){
+    if(k == 1){
+        cout &lt;&lt; 1;
+        return;
+    }
+    cout &lt;&lt; &quot;(&quot;;
+    bool flag = k&amp;1;
+    f(flag ? ((k-1)/2) : (k/2));
+    cout &lt;&lt; &quot;)*2&quot;;
+    if(flag) cout &lt;&lt; &quot;+1&quot;;
+}
+int main(){
+    int n;
+    cin &gt;&gt; n;
+    f(n);
+    return 0;
+}
+</code></pre>
+<p>做俩简单的题儿：<br>
+<img src="https://daoxi365.github.io/tech-blog//post-images/ea9649a7df2263afe24e792c9678ab26.png" alt="在这里插入图片描述" loading="lazy"></p>
+<pre><code class="language-cpp">// Author:PanDaoxi
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+double f(double x, int n){
+    if(n == 1) return sqrt(1.0 + x);
+    return sqrt(n + f(x, --n));
+}
+int main(){
+    double x;
+    int n;
+    cin &gt;&gt; x &gt;&gt; n;
+    cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; f(x, n);
+    return 0;
+}
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://daoxi365.github.io/tech-blog//post-images/a793ab10e53f1d0b9678a49cd045a823.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<pre><code class="language-cpp">// Author:PanDaoxi
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+double f(double x, int n){
+    if(n == 1) return x / (1.0+x);
+    return x / (n + f(x, --n));
+}
+int main(){
+    double x;
+    int n;
+    cin &gt;&gt; x &gt;&gt; n;
+    cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; f(x, n);
+    return 0;
+}
+</code></pre>
+<p>好啦好啦，后面我们就要趁热打铁学深搜了！<br>
+我目前的规划是：</p>
+<ul>
+<li>递归</li>
+<li>深搜</li>
+<li>排序</li>
+<li>贪心</li>
+<li>递推</li>
+<li>栈和队列</li>
+<li>二分</li>
+<li>广搜</li>
+<li>动态规划</li>
+<li>…………</li>
+</ul>
+
+          </div>
+        </div>
+        
+        
+        <div class="next-post">
+            <a class="purple-link" href="https://daoxi365.github.io/tech-blog/zhan-oi/">
+              <h3 class="post-title">
+                上一篇：《七、栈》
+              </h3>
+            </a>
+          </div>
+          
+          <br>
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://daoxi365.github.io/tech-blog/gao-jing-du-practice/">
+              <h3 class="post-title">
+                下一篇：《五、练习：高精度》
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+	  <div id="vcomments"></div>
+      <script>
+document.addEventListener('DOMContentLoaded', () => {
+            const pres = document.querySelectorAll('pre');
+
+            pres.forEach((pre, index) => {
+                // 创建唯一的ID
+                const uniqueId = `pre-${index + 1}`;
+                pre.id = uniqueId;
+
+                // 创建按钮
+                const button = document.createElement('button');
+                button.className = 'btn';
+                button.innerHTML = '<span>Copy</span> <span class="fa fa-copy"></span>';
+
+                // 设置 data-clipboard-target 属性
+                button.setAttribute('data-clipboard-target', `#${uniqueId}`);
+
+                // 在 pre 标签之前插入按钮
+                pre.parentNode.insertBefore(button, pre);
+            });
+        });
+    </script>
+	    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 初始化 Clipboard.js
+            new ClipboardJS('.btn');
+        });
+        (function(c,a){var b=a.createElement("div");b.style.cssText="position: fixed; top: 0; left: 0; width: 0; height: 3px;box-shadow: 0 0 3px #999; background: -webkit-linear-gradient(#177cb0,#065279,#2e4e7e);z-index: 999999;-webkit-transition:width .3s linear;";a.body.appendChild(b);var d=c.innerHeight||a.documentElement.clientHeight||a.body.clientHeight;c.addEventListener("scroll",function(){b.style.width=Math.round(pageYOffset/(a.body.offsetHeight-d)*100)+"%"},!1)})(window,document);
+    </script>
+<div class="site-footer">
+  <div class="social-container">
+  
+  <a href="/post-images/1677405467178.jpg" target="_blank" title="微信"><i class="fa fa-wechat"></i></a>
+  <a href="http://wpa.qq.com/msgrd?v=3&uin=2060642520&site=qq&menu=yes" target="_blank" title="QQ"><i class="fa fa-qq"></i></a>
+  <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=6JiJhoyJh5CBqJmZxouHhQ" style="text-decoration:none;" title="电子邮件"><i class="fa fa-envelope"></i></a>
+		
+	
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+	  <a target="_blank" href="https://daoxi365.github.io/csdn-blogs/" title="原 CSDN 文章汇总"><i class="fa fa-window-restore"></i></a>
+	  <a target="_blank" href="https://daoxi365.github.io/software/" title="微型项目及下载站"><i class="fa fa-cloud-download"></i></a>
+	  <a target="_blank" href="/" style="text-decoration:none;" title="Daoxi365 主站"><i class="fa fa-home"></i></a>
+  	<a href="https://daoxi365.github.io/tech-blog//atom.xml" target="_blank" title="RSS 订阅"><i class="fa fa-rss"></i></a>
+  </div>
+  <p><b>Any great thought has a negligible beginning.</b></p><br><p>Copyright 2022-<span id="currentYear"></span> by <b>PanDaoxi</b>. All rights reserved.</p>
+<br> <script src="/tech-blog/beauty.js"></script><!--  | <a class="rss" href="https://daoxi365.github.io/tech-blog//atom.xml" target="_blank">RSS</a>-->
+</div>
+ <canvas width="1366" height="662" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+ 
+
+
+    </div>
+    <script src="https://daoxi365.github.io/tech-blog//media/scripts/index.js"></script>
+
+
+
+
+	
+	<script src="//sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+	<script>
+		// hljs.initLineNumbersOnLoad();
+        new Valine({
+            el: '#vcomments',
+            appId: 'iSFPoEhAVR5wEDbz7SUui5YR-gzGzoHsz',
+            appKey: 'aEnh7WKEZypE8MmNBkqs75YD',
+			placeholder: '发表评论……',
+			enableQQ: true,
+			recordIP: true,
+			highlight: false,
+			avatar: 'identicon',
+			visitor: true,
+			requiredFields: ['nick',],
+			
+			emojiCDN: 'https://i0.hdslb.com/bfs/emote/',
+			emojiMaps: {'1': '53148f85bb7e2d8bada8cea57ee4b1f36f48237d.png', '2': 'fa6dda8b876ed38609de38aa604be5ad109b8591.png', '3': '9cb6ee2c42986c56ec361d21d5ccbd096aefab0a.png', '4': 'bf7e00ecab02171f8461ee8cf439c73db9797748.png', '5': '685612eadc33f6bc233776c6241813385844f182.png', '6': '3ad2f66b151496d2a5fb0a8ea75f32265d778dd3.png', '7': '3087d273a78ccaff4bb1e9972e2ba2a7583c9f11.png', '8': 'b4cb77159d58614a9b787b91b1cd22a81f383535.png', '9': '4683fd9ffc925fa6423110979d7dcac5eda297f4.png', '10': '63c9d1a31c0da745b61cdb35e0ecb28635675db2.png', '11': '35d62c496d1e4ea9e091243fa812866f5fecc101.png', '12': '4191ce3c44c2b3df8fd97c33f85d3ab15f4f3c84.png', '13': 'd15121545a99ac46774f1f4465b895fe2d1411c3.png', '14': 'b5a5898491944a4268360f2e7a84623149672eb6.png', '15': '431432c43da3ee5aab5b0e4f8931953e649e9975.png', '16': '4384050fbab0586259acdd170b510fe262f08a17.png', '17': '8290b7308325e3179d2154327c85640af1528617.png', '18': '3d1dbe52ea16e12ff7b1c371196f728a4097fb33.png', '19': '28a91da1685d90124cfeead74622e1ebb417c0eb.png', '20': 'c3043ba94babf824dea03ce500d0e73763bf4f40.png', '21': 'ba0937ef6f3ccca85e2e0047e6263f3b4da37201.png', '22': '0922c375da40e6b69002bd89b858572f424dcfca.png', '23': '1597302b98827463f5b75c7cac1f29ea6ce572c4.png', '24': 'abd7404537d8162720ccbba9e0a8cdf75547e07a.png', '25': '362bded07ea5434886271d23fa25f5d85d8af06c.png', '26': '8a10a4d73a89f665feff3d46ca56e83dc68f9eb8.png', '27': '92b1c8cbceea3ae0e8e32253ea414783e8ba7806.png', '28': 'de4c0783aaa60ec03de0a2b90858927bfad7154b.png', '29': '9d2ec4e1fbd6cb1b4d12d2bbbdd124ccb83ddfda.png', '30': '2caafee2e5db4db72104650d87810cc2c123fc86.png', '31': 'b7840db4b1f9f4726b7cb23c0972720c1698d661.png', '32': '485a7e0c01c2d70707daae53bee4a9e2e31ef1ed.png', '33': '81edf17314cea3b48674312b4364df44d5c01f17.png', '34': '6c49d226e76c42cd8002abc47b3112bc5a92f66a.png', '35': 'f8e9a59cad52ae1a19622805696a35f0a0d853f3.png', '36': '6921bb43f0c634870b92f4a8ad41dada94a5296d.png', '37': 'ba8d5f8e7d136d59aab52c40fd3b8a43419eb03c.png', '38': '33ad6000d9f9f168a0976bc60937786f239e5d8c.png', '39': 'cb89184c97e3f6d50acfd7961c313ce50360d70f.png', '40': 'ca94ad1c7e6dac895eb5b33b7836b634c614d1c0.png', '41': '0afecaf3a3499479af946f29749e1a6c285b6f65.png', '42': '44667b7d9349957e903b1b62cb91fb9b13720f04.png', '43': '1a67265993913f4c35d15a6028a30724e83e7d35.png', '44': '895d1fc616b4b6c830cf96012880818c0e1de00d.png', '45': 'cb321684ed5ce6eacdc2699092ab8fe7679e4fda.png', '46': '43d3db7d97343c01b47e22cfabeca84b4251f35a.png', '47': 'd2f26cbdd6c96960320af03f5514c5b524990840.png', '48': '010540d0f61220a0db4922e4a679a1d8eca94f4e.png', '49': '905fd9a99ec316e353b9bd4ecd49a5f0a301eabf.png', '50': 'cb0ebbd0668640f07ebfc0e03f7a18a8cd00b4ed.png', '51': '4e58a2a6f5f1580ac33df2d2cf7ecad7d9ab3635.png', '52': '0f25ce04ae1d7baf98650986454c634f6612cb76.png', '53': 'c5c6d6982e1e53e478daae554b239f2b227b172b.png', '54': 'e64af664d20716e090f10411496998095f62f844.png', '55': 'cfa9b7e89e4bfe04bbcd34ccb1b0df37f4fa905c.png', '56': 'fc510306bae26c9aec7e287cdf201ded27b065b9.png', '57': 'eba54707c7168925b18f6f8b1f48d532fe08c2b1.png', '58': '888d877729cbec444ddbd1cf4c9af155a7a06086.png', '59': 'bb2060c15dba7d3fd731c35079d1617f1afe3376.png', '60': '3a03aebfc06339d86a68c2d893303b46f4b85771.png', '61': 'a651db36701610aa70a781fa98c07c9789b11543.png', '62': '531863568e5668c5ac181d395508a0eeb1f0cda4.png', '63': '4c87afff88c22439c45b79e9d2035d21d5622eba.png', '64': '3195714219c4b582a4fb02033dd1519913d0246d.png', '65': 'd530fcaa5100ba12a17a79b55bad342d530c54e3.png', '66': 'd5a491990be551ce69f9660da948050df4eab331.png', '67': '93609633a9d194cf336687eb19c01dca95bde719.png', '68': '643d6c19c8164ffd89e3e9cdf093cf5d773d979c.png', '69': '5de5373d354c373cf1617b6b836f3a8d53c5a655.png', '70': 'c7860392815d345fa69c4f00ef18d67dccfbd574.png', '71': 'a41813c4edf8782047e172c884ebd4507ce5e449.png', '72': 'dce6fc7d6dfeafff01241924db60f8251cca5307.png', '73': '8da12d5f55a2c7e9778dcc05b40571979fe208e6.png', '74': 'c4e9f0e3f35961d5037cb071b16ddba2170b262c.png', '75': 'ed04066ea7124106d17ffcaf75600700e5442f5c.png', '76': 'b49fa9f4b1e7c3477918153b82c60b114d87347c.png', '77': 'c7aaeacb21e107292d3bb053e5abde4a4459ed30.png', '78': '89516218158dbea18ab78e8873060bf95d33bbbe.png', '79': '1b5c53cf14336903e1d2ae3527ca380a1256a077.png', '80': 'fafe8d3de0dc139ebe995491d2dac458a865fb30.png', '81': '802429a301ac5b35a0480d9526a070ce67cd8097.png', '82': '3c210366a5585706c09d4c686a9d942b39feeb50.png', '83': '41780a4254750cdaaccb20735730a36044e98ef3.png', '84': 'f2b3aee7e521de7799d4e3aa379b01be032698ac.png', '85': '07cc6077f7f7d75b8d2c722dd9d9828a9fb9e46d.png', '86': '8e6fb491eb1bb0d5862e7ec8ccf9a3da12b6c155.png', '87': '9275275ff1f2659310648221107d20bc4970f106.png', '88': 'fc7dadaa6986e75b813aa26f3eff3281d5f1a6d1.png', '89': '085d41d0fa25453b58fdc87dc2df538183fea11e.png', '90': 'cf1c441507689342713623965035f9bed72b1b17.png', '91': 'ce8314c9c2cfdbe235c239c28b819698e29a02d3.png', '92': '1f439878d8160bd64a4464904064a10df880c921.png', '93': '57d087b6437002c2ca9e225dcac0ef226d1f2654.png', '94': '9fe06f3594d9afaf4ee2b74770f1c3086ae0ba11.png', '95': 'c4248a7b6ab326d66c83fd1fb58f1a50f99df332.png', '96': '0b97c7e50e0cc963370e62fbb9b55f51bbe7f8ab.png', '97': '80eba0ce64c3fc1279b4daede2f1979cb2380e78.png', '98': '4ee07ff03266d62b246be0b950bebb2abf3d997c.png', '99': '9a70b365e523f2379f395031ceefcebb75a45903.png', '100': '032fdc0d9d9fe6334776f6c39518a959b73b98f4.png', '101': '8b40f228675602a317d32007de6b795c101135ec.png', '102': '4b671ba32a2581cf40e5cd41c67b111eb8010de0.png', '103': '8e7f71cda83ce407b0684702983399f8ed982f17.png', '104': '8188ddf95bace929d382c7a83214afde79d83bfc.png', '105': '91ed33b74bc36873c3ac8b2648f70d7ab6d8ab78.png', '106': '8b0a87e414f453a29730b6e0f45ca61f2f898688.png', '107': '8fba438fcbe0550877b04efd768d857082307c5e.png', '108': '1de5789fbb3526ef7823c54db7081790a38e7044.png', '109': '90a38c34742899f8e84138ed55f56cad3ba611fb.png', '110': '9fce63f38288700bf7be84f3be336cf895ba0902.png', '111': '5ff2ed5cb71b02010018cc5910ac7052a03769af.png', '112': '7d249f7c990111d3e2982f7477af15b7eb29cbd9.png', '113': '5f2370e561c32d841245f7b1aab2eef43aeb9544.png', '114': '41eb93f09fc4a4d0692a310e8a1f85ba60e96060.png', '115': 'c58002c32ee78d45366e126f294cb3149dd64ac2.png', '116': '273dcff577551bafff4f1eae18561f871e73a6ba.png', '117': 'cffab383f47bab7f6736ba9c8d6ac098113410d9.png', '118': 'b0f2e8db405ec667c3e6aaabd7c15155b6ea8710.png', '119': '324cd79784aeb37dbf2f47f68bbe8ed5d01f975e.png', '120': '1fab697214918d91087373a999cc7ef8040ddf85.png', '121': 'fb0b476fe2ff30cd59385ea7d616627ac114161f.png', '122': '35bba1bb8f164c5e844155548438248e6eaa8382.png', '123': 'fda155e7c33b40dbb94c24644e0635d47b6ef3cc.png', '124': 'ed64e0c81ee194138bd9df30c65077ed978fb88c.png', '125': '078991ad7546f2fefb79c05894d5f0431736d1e7.png', '126': '40bc09683e3b93390995b9ea5dc64f982b34e347.png', '127': '883e4caa8e1745f48de0671c6441810faa4a56ed.png', '128': 'e25f5442c5bce2a54b9c757e3032f44398f1a7df.png', '129': '36de90dbaffeb32477dffdac612ad69da4e19b76.png', '130': '5fafe7d9992e12c756da909a545ddb27486987af.png', '131': '835c3bff4fc686a78f49db1eb68e4d04c0963195.png', '132': 'ebfdda8501e48c2434297e4a9f15218aadf07747.png', '133': 'fd0c2bbb806265c468eca83b7a90b0d5fcaa4cec.png', '134': 'a44a291ffe9334712ba130aa3fca0b940f32908d.png', '135': 'cad39e954972bbd93f0a777978b2f77078b8cf4a.png', '140': '5ce649d5f716566db41dbf68c2e319517516d321.png', '141': '8d962fcf0b18761d5f4315a49b7ae428da08cf4a.png', '142': '0872ca59db047b916f58926d83ca4f35e49b87d6.png', '143': 'cc7eba19b5f468523c5a2867c4561fd33b541029.png', '144': '7145cbd5464b14a3f5cf544125a9976e44a13517.png', '145': '21f15fe11b7a84d2f2121c16dec50a4e4556f865.png', '146': '3ed5b0b2e1f632884d93abe6ae2a387e6f4395fd.png', '147': 'd41bc3db2a0d5ac32eee0b454062c057e6198a21.png', '148': '6209c2cdcdeb014efd9eae4e9d55b9efb9c18263.png', '149': 'ee2d354d3e67e5d77bab31ad8af99cd5ac89c009.png', '150': '84820c2b147a8ca02f3c4006b63f76c6313cbfa0.png', '151': '9c78c14bd395d75afeecd20276ec71324e9b97df.png', '152': '8de880a58fada7e0e668f2f47dabf0c223de4e58.png', '153': 'a41763740a90c2b11bf282bf44ccee78066c98ff.png', '154': '7b94a0c3fe95c603a85a13bacbaf726b8e5882dc.png', '155': 'ab3845edcdc3bb8852c502f472a8caa9e921ae3a.png', '156': '1f8ab5644a10c3a01cc32cfe8f4d000296b06fb4.png', '157': '6b812dc41844ae4bdb3d6b7dd66067db6b922a5d.png', '158': 'e2aeda75690b72b49ebc82f12e340678f5fc47c0.png', '159': 'd2c5d5a131f9d247e4ab4eed875c752d6e89d69e.png', '160': 'a4789b0eceb8fb9719c3a214aa89180528369091.png', '161': '5a6199d39ee57e6e00ee1db33a7d430f5a9ff045.png', '162': 'f4782fa5a072c766fc2b289b067ea3f19086bdf4.png', '163': '011c8e452941c701c3f69810eaeaaed99d96b9ee.png', '164': '79ba29bf44db3f05acbf0179f5969cc21cb1b0e6.png', '165': '7ec857e53ebaf37c59e96b5e56bcb0f05cd0b2d7.png', '166': '63ec80dea3066bd9f449ba999ba531fa61f7b4eb.png', '167': 'a544563e68dec3f6fcb3200cb7ea71193a0afe61.png', '168': 'a26189ff1e681bddef7f6533f9aabe7604731a3e.png', '169': '78d04c6ce78a613c90d510cd45fe7e25c57ba00b.png', '170': 'e763846a534e790d402ee4ef1640c9bc02aaab37.png', '171': '9903fefe88018d62fecad299f6af4eb2d588bbdc.png', '172': '4809416be5ca787c2ec3e897e4fd022a58da6e0e.png', '173': 'bba3703ab90b7d16fe9dbcb85ed949db687f8331.png', '174': '55f8f6445ca7c3170cdfc5b16036abf639ce9b57.png', '175': '2a165b555ba20391316366c664ed7891883dc5aa.png', '176': 'e08543c71202b36c590094417fcfbb80c3506cd8.png', '177': '6c0d2e6c486d1ba5afd6204a96e102652464a01d.png', '178': 'a9cf77c78e1b9b40aa3ed4862402fba008ee2f51.png', '179': 'f6eb74f8230588f61a298af89061a7d75c5762e5.png', '180': 'a01ca28923daa7cc896c42f27deb4914e20dd572.png', '181': 'c37f88cf799f9badf9d84b7671dc3dd98c0fc0c2.png', '182': '98e6950e39fbb4dd1c576042063ca632074070ba.png', '183': '535e00658e7e47966f154d3a167fa2365ebc4321.png', '184': 'd8065c2e7ce48c929317a94553499a46fecc262a.png', '185': '255a938f39cea625032b6650036b31aa26c50a3c.png', '186': 'cbe798a194612958537c5282fcca7c3bcd2aa15c.png', '187': '29bd57ec4e8952880fea6c9e47aee924e91f10c4.png', '188': '7ca61680a905b5b6e2e335c630e725b648b03b4d.png', '189': '9ca4f723194ff9f6f5745591132c1d70fae5a4a8.png', '190': 'c9b8683827ec6c00fea5327c9bec14f581cef2aa.png', '191': 'a49e0d0db1e7d35a0f7411be13208951ab448f03.png', '192': 'c1d1e76c12180adc8558f47006fe0e7ded4154bb.png', '193': '9e0b3877d649aaf6538fbdd3f937e240a9d808e4.png', '194': '9db817cba4a7f4a42398f3b2ec7c0a8e0c247c42.png', '195': '9ff2e356797c57ee3b1675ade0883d2d2247be9b.png', '196': 'e68497c775feaac1c3b1a6cd63a50cfb11b767c4.png', '197': 'd424d1ad8d14c1c9b8367842bc68c658b9229bc1.png', '198': 'faad40c56447f1f8abcb4045c17ce159d113d1fd.png', '199': '35668cc12ae25b9545420e4a85bf21a0bfc03e5d.png', '200': 'a8cbf3f6b8cd9377eeb15b9172f3cd683b2e4650.png', '201': 'f41fdafe2d0fbb8e8bc1598d2cf37e355560103a.png', '202': '24e7a6a6e6383c987215fb905e3ee070aca259b5.png', '203': 'a523f3e4c63e4db1232365765d0ec452f83be97e.png', '204': 'ea9db62ff5bca8e069cd70c4233353a802835422.png', '205': 'f30089248dd137c568edabcb07cf67e0f6e98cf3.png', '206': 'ccc94600b321a28116081e49ecedaa4ee8728312.png', '207': '33ccd3617bfa89e9d1498b13b7542b63f163e5de.png', '208': '54c8ddff400abfe388060cabfbb579280fdea1be.png', '213': 'c1d59f439e379ee50eef488bcb5e5378e5044ea4.png', '214': '6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png', '215': '1f0b87f731a671079842116e0991c91c2c88645a.png', '216': '87f46748d3f142ebc6586ff58860d0e2fc8263ba.png', '217': '26702dcafdab5e8225b43ffd23c94ac1ff932654.png', '218': 'd04dba7b5465779e9755d2ab6f0a897b9b33bb77.png', '219': '911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png', '220': 'fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png', '221': '34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png', '222': '0d15c7e2ee58e935adc6a7193ee042388adc22af.png', '223': '9f996894a39e282ccf5e66856af49483f81870f3.png', '224': '90cf159733e558137ed20aa04d09964436f618a1.png', '225': '70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png', '226': '0793d949b18d7be716078349c202c15ff166f314.png', '227': '23269aeb35f99daee28dda129676f6e9ea87934f.png', '228': '1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png', '229': 'c666f55e88d471e51bbd9fab9bb308110824a6eb.png', '230': 'a8111ad55953ef5e3be3327ef94eb4a39d535d06.png', '231': 'b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png', '232': '1abc628f6d4f4caf9d0e7800878f4697abbc8273.png', '233': '5443c22b4d07fb1907ccc610c8e6db254f2461b7.png', '234': 'f85c354995bd99e28fc76c869bfe42ba6438eff4.png', '235': 'a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png', '236': '8b196675b53af58264f383c50ad0945048290b33.png', '237': '61822c7e9aae5da76475e7892534545336b23a6f.png', '238': '09dd16a7aa59b77baa1155d47484409624470c77.png', '239': 'ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png', '240': '180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png', '241': 'cead1c351ab8d79e9f369605beb90148db0fbed3.png', '242': 'bb690d4107620f1c15cff29509db529a73aee261.png', '243': 'fe31c08edad661d63762b04e17b8d5ae3c71a757.png', '244': '45821a01f51bc867da9edbaa2e070410819a95b2.png', '245': '241ee304e44c0af029adceb294399391e4737ef2.png', '246': '56ab10b624063e966bfcb76ea5dc4794d87dfd47.png', '247': 'c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png', '248': '6e72339f346a692a495b123174b49e4e8e781303.png', '249': '89712c0d4af73e67f89e35cbc518420380a7f6f4.png', '250': 'fc7e829b845c43c623c8b490ee3602b7f0e76a31.png', '251': '9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png', '252': '34db290afd2963723c6eb3c4560667db7253a21a.png', '253': '8b0ec90e6b86771092a498c54f09fc94621c1900.png', '254': 'c32d39db2737f89b904ca32700d140a9241b0767.png', '255': '7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png', '256': '093c1e2c490161aca397afc45573c877cdead616.png', '257': '7e71cde7858f0cd50d74b0264aa26db612a8a167.png', '258': 'b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png', '259': '72ccad6679fea0d14cce648b4d818e09b8ffea2d.png', '260': '0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png', '261': '4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png', '262': '0b8cb81a68de5d5365212c99375e7ace3e7891b7.png'},
+        })
+	jinrishici.load(function(result) {
+     var jrsc_plac = result.data.content + "\n\t——" + "【" + result.data.origin.dynasty + "】" + result.data.origin.author + "《" + result.data.origin.title + "》"
+     document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+      });
+    </script>
+<script>
+if(disabledValine) {
+	document.getElementById("vcomments").innerHTML = '<h2 style="text-align: center;">评论区暂时关闭，无法发表评论🧐</h2>';
+}
+   </script>
+  </body>
+</html>

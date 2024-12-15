@@ -1,0 +1,636 @@
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<!---
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+-->
+<link href="https://fonts.font.im/css2?family=Noto+Serif+SC&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+
+<title>PanDaoxi&#39;s Tech Blog</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="/animate.css">
+
+<!--<link rel="shortcut icon" href="https://daoxi365.github.io/tech-blog//favicon.ico?v=1734229689376">-->
+<link rel="icon" class="js-site-favicon" type="image/svg+xml" href="/tech-blog/favicon.ico">
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script src="/katex/katex.min.js"></script>
+<link rel="stylesheet" href="https://daoxi365.github.io/tech-blog//styles/main.css">
+
+
+
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/css/fontawesome.css" rel="stylesheet"> -->
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/css/svg-with-js.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/js/fontawesome.min.js"></script> -->
+<script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="/jquery-3.7.1.min.js">
+<script src='/valine.js'></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://daoxi365.github.io/tech-blog/">
+        <img class="avatar" src="https://daoxi365.github.io/tech-blog//images/avatar.png?v=1734229689376" alt=""
+          width="32px" height="32px">
+      </a>
+      <a href="https://daoxi365.github.io/tech-blog/">
+        <h1 class="site-title">
+          PanDaoxi&#39;s Tech Blog
+        </h1>
+      </a>
+    </div>
+    <div class="right">
+      <div class="gridea-search-div" v-if="headSearchShow">
+        <form id="gridea-search-form" action="https://daoxi365.github.io/tech-blog//search/">
+          <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+        </form>
+      </div>
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }"
+          @click="menuClick()"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      <div class="gridea-search-div" v-if="menuSearchShow">
+        <form id="gridea-search-form" action="https://daoxi365.github.io/tech-blog//search/">
+          <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+        </form>
+      </div>
+      
+        
+            <a href="https://daoxi365.github.io/tech-blog/" class="menu purple-link">
+              Homepage
+            </a>
+            
+              
+        
+            <a href="https://daoxi365.github.io/tech-blog/tags" class="menu purple-link">
+              Tags
+            </a>
+            
+              
+        
+            <a href="https://daoxi365.github.io/tech-blog/archives" class="menu purple-link">
+              Archives
+            </a>
+            
+              
+        
+            <a href="https://daoxi365.github.io/tech-blog/guan-yu" class="menu purple-link">
+              About Us
+            </a>
+            
+              
+        
+          <a class="menu purple-link" href="https://daoxi365.github.io/" class="menu" target="_blank">
+            Main Site
+          </a>
+          
+              
+    </div>
+  </div>
+</transition>
+
+
+        <div class="content-container">
+          
+          
+
+<div class="archives-container">
+  
+    <h2 class="year">2024</h2>
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/sunset/">
+            <h2 class="post-title">
+              Sunset
+              <small>2024-12-15</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/hua-fan-wei-jian-or-hua-jian-wei-fan/">
+            <h2 class="post-title">
+              化繁为简 or 化简为繁
+              <small>2024-07-18</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/yong-flash-zhi-zuo-pandaoxi-tong-kuan-tou-tu/">
+            <h2 class="post-title">
+              用 Flash 制作 PanDaoxi 同款校徽封面
+              <small>2024-06-30</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/chong-xin-pai-lie-windowsxin-jian-cai-dan-de-shun-xu/">
+            <h2 class="post-title">
+              重新排列 Windows“新建”菜单的顺序
+              <small>2024-06-20</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/li-yong-clipboardjs-shi-xian-dai-ma-kuai-fu-zhi-an-niu/">
+            <h2 class="post-title">
+              利用 ClipboardJS 实现代码块复制按钮
+              <small>2024-06-20</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/zai-xian-wen-dang-docsify-de-jian-dan-ying-yong/">
+            <h2 class="post-title">
+              在线文档 Docsify 的简单应用
+              <small>2024-04-21</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/tao-tuo-hong-zhi-zhu-deng-duo-mei-ti-wang-luo-jiao-shi-gong-ju-de-fang-fa/">
+            <h2 class="post-title">
+              逃脱“红蜘蛛”等多媒体网络教室工具的方法
+              <small>2024-03-30</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    <h2 class="year">2023</h2>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/jie-jue-yi-bu-fen-windows-xia-u-pan-cha-ru-wu-fan-ying-de-wen-ti/">
+            <h2 class="post-title">
+              解决一部分 Windows 下 U 盘插入无反应的问题
+              <small>2023-11-19</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/jian-dan-tu-lun-luogu-p5318-cha-zhao-wen-xian/">
+            <h2 class="post-title">
+              简单图论：Luogu P5318 查找文献
+              <small>2023-11-04</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/c-pai-xu-he-qu-chong/">
+            <h2 class="post-title">
+              C++ 排序和去重
+              <small>2023-09-15</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/ji-yi-hua-sou-suo/">
+            <h2 class="post-title">
+              记忆化搜索
+              <small>2023-08-28</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/ji-yu-lemon-ping-ce-ruan-jian-de-zi-dong-ac-ji/">
+            <h2 class="post-title">
+              基于 Lemon 评测软件的“自动 AC 机”
+              <small>2023-08-02</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/jiu-dfs/">
+            <h2 class="post-title">
+              九、DFS
+              <small>2023-07-16</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/virtualbox-shi-yong-jiao-cheng/">
+            <h2 class="post-title">
+              Virtualbox 使用教程
+              <small>2023-07-02</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/BSOD-de-ji-qiao/">
+            <h2 class="post-title">
+              快速让电脑蓝屏
+              <small>2023-07-02</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/shi-yong-python-kuai-su-zhan-man-nei-cun-hook-zha-dan/">
+            <h2 class="post-title">
+              使用 Python 快速占满内存（Hook 炸弹）
+              <small>2023-05-14</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    <h2 class="year">2022</h2>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/gao-jing-du-ac-luogu-p1001/">
+            <h2 class="post-title">
+              高精度 AC Luogu P1001
+              <small>2022-12-10</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/luogu-p3853-lu-biao-she-zhi/">
+            <h2 class="post-title">
+              Luogu P3853 路标设置
+              <small>2022-10-22</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/shu-xing-jie-gou/">
+            <h2 class="post-title">
+              八、树形数据结构
+              <small>2022-09-25</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/zhan-oi/">
+            <h2 class="post-title">
+              七、栈
+              <small>2022-09-12</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/di-gui-OI/">
+            <h2 class="post-title">
+              六、递归
+              <small>2022-09-10</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/gao-jing-du-practice/">
+            <h2 class="post-title">
+              五、练习：高精度
+              <small>2022-08-06</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/string-and-const-char-oi/">
+            <h2 class="post-title">
+              四、字符常量 &amp; 字符串
+              <small>2022-08-02</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/shu-zu-oi/">
+            <h2 class="post-title">
+              三、数组
+              <small>2022-07-31</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/pan-duan-and-xun-huan/">
+            <h2 class="post-title">
+              二、判断 &amp; 循环
+              <small>2022-07-30</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/hello-cpp/">
+            <h2 class="post-title">
+              一、HELLO, C++
+              <small>2022-07-29</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/python-shu-biao-dou-dong/">
+            <h2 class="post-title">
+              Python 鼠标抖动
+              <small>2022-02-26</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/python-cheng-xu-te-xiao/">
+            <h2 class="post-title">
+              Python 程序特效
+              <small>2022-02-22</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+      
+        <article class="post">
+          <a href="https://daoxi365.github.io/tech-blog/you-qu-de-10-ge-cmd-ming-ling/">
+            <h2 class="post-title">
+              有趣的10个CMD命令
+              <small>2022-02-17</small>
+            </h2>
+          </a>
+        </article>
+      
+    
+  
+</div>
+
+
+        </div>
+
+        <script>
+document.addEventListener('DOMContentLoaded', () => {
+            const pres = document.querySelectorAll('pre');
+
+            pres.forEach((pre, index) => {
+                // 创建唯一的ID
+                const uniqueId = `pre-${index + 1}`;
+                pre.id = uniqueId;
+
+                // 创建按钮
+                const button = document.createElement('button');
+                button.className = 'btn';
+                button.innerHTML = '<span>Copy</span> <span class="fa fa-copy"></span>';
+
+                // 设置 data-clipboard-target 属性
+                button.setAttribute('data-clipboard-target', `#${uniqueId}`);
+
+                // 在 pre 标签之前插入按钮
+                pre.parentNode.insertBefore(button, pre);
+            });
+        });
+    </script>
+	    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 初始化 Clipboard.js
+            new ClipboardJS('.btn');
+        });
+        (function(c,a){var b=a.createElement("div");b.style.cssText="position: fixed; top: 0; left: 0; width: 0; height: 3px;box-shadow: 0 0 3px #999; background: -webkit-linear-gradient(#177cb0,#065279,#2e4e7e);z-index: 999999;-webkit-transition:width .3s linear;";a.body.appendChild(b);var d=c.innerHeight||a.documentElement.clientHeight||a.body.clientHeight;c.addEventListener("scroll",function(){b.style.width=Math.round(pageYOffset/(a.body.offsetHeight-d)*100)+"%"},!1)})(window,document);
+    </script>
+<div class="site-footer">
+  <div class="social-container">
+  
+  <a href="/post-images/1677405467178.jpg" target="_blank" title="微信"><i class="fa fa-wechat"></i></a>
+  <a href="http://wpa.qq.com/msgrd?v=3&uin=2060642520&site=qq&menu=yes" target="_blank" title="QQ"><i class="fa fa-qq"></i></a>
+  <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=6JiJhoyJh5CBqJmZxouHhQ" style="text-decoration:none;" title="电子邮件"><i class="fa fa-envelope"></i></a>
+		
+	
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+	  <a target="_blank" href="https://daoxi365.github.io/csdn-blogs/" title="原 CSDN 文章汇总"><i class="fa fa-window-restore"></i></a>
+	  <a target="_blank" href="https://daoxi365.github.io/software/" title="微型项目及下载站"><i class="fa fa-cloud-download"></i></a>
+	  <a target="_blank" href="/" style="text-decoration:none;" title="Daoxi365 主站"><i class="fa fa-home"></i></a>
+  	<a href="https://daoxi365.github.io/tech-blog//atom.xml" target="_blank" title="RSS 订阅"><i class="fa fa-rss"></i></a>
+  </div>
+  <p><b>Any great thought has a negligible beginning.</b></p><br><p>Copyright 2022-<span id="currentYear"></span> by <b>PanDaoxi</b>. All rights reserved.</p>
+<br> <script src="/tech-blog/beauty.js"></script><!--  | <a class="rss" href="https://daoxi365.github.io/tech-blog//atom.xml" target="_blank">RSS</a>-->
+</div>
+ <canvas width="1366" height="662" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+ 
+
+
+      </div>
+      <script src="https://daoxi365.github.io/tech-blog//media/scripts/index.js"></script>
+
+
+
+
+    </div>
+  </body>
+</html>
