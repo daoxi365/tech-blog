@@ -1,3 +1,4 @@
+alert("本站已弃用，建议使用新网站 https://blog.daoxi365.top/");
 !function () {
         function n(n, e, t) {
             return n.getAttribute(e) || t
