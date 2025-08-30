@@ -1,4 +1,4 @@
-if (!document.cookie.includes('alertShown=true')) { alert("本站已弃用，建议使用新网站 https://blog.daoxi365.top/"); document.cookie = "alertShown=true; path=/; max-age=" + (60 * 60 * 24 * 365); }
+// if (!document.cookie.includes('alertShown=true')) { alert("本站已弃用，建议使用新网站 https://blog.daoxi365.top/"); document.cookie = "alertShown=true; path=/; max-age=" + (60 * 60 * 24 * 365); }
 !function () {
         function n(n, e, t) {
             return n.getAttribute(e) || t
@@ -201,3 +201,4 @@ cursorSpecialEffects.init()
 
 var date = new Date();
 document.getElementById("currentYear").innerHTML = date.getFullYear();
+
